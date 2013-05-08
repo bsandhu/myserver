@@ -1,0 +1,8 @@
+com/bsandhu/services/MyService.class
+com/bsandhu/controllers/MyController.class
+com/bsandhu/model/Trade.class
+com/bsandhu/services/TradeService.class
+com/bsandhu/controllers/TradeController.class
+com/bsandhu/services/BooksSevice.class
+com/bsandhu/model/Instrument.class
+com/bsandhu/model/Entity.class
