@@ -1,0 +1,11 @@
+.label {
+    margin-right: 2px;
+    display: inline-block;
+    min-width: 75;
+    background-color: lavenderblush;
+    width: 200px;
+    text-align: right;
+}
+
+input {
+}
