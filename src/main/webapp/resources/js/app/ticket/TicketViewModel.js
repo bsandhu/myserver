@@ -6,8 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 define(
-    ['knockout', 'app/ticket/TradeService'],
-    function (ko, tradeService) {
+    ['knockout', 'app/ticket/TradeService', 'log'],
+    function (ko, tradeService, log) {
         "use strict";
 
         function TicketViewModel() {
@@ -16,8 +16,9 @@ define(
         }
 
         TicketViewModel.prototype.saveTrade = function () {
+            log.info('saving trade');
             var msg = tradeService.saveTrade();
-            console.log(msg);
+            log.info("Response: " + msg);
             this.status = msg;
         };
 

@@ -54,7 +54,7 @@
 <script src="resources/js/lib/curl.js"></script>
 
 <script>
-    curl(["knockout", "app/ticket/TicketViewModel", "domReady!", "css!"],
+    curl(["knockout", "app/ticket/TicketViewModel", "domReady!"],
          function (ko, TicketViewModel) {
             ko.applyBindings(new TicketViewModel())
         });
