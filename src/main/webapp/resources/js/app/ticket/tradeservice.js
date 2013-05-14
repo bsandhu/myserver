@@ -6,18 +6,17 @@
  * To change this template use File | Settings | File Templates.
  */
 
-function TradeService() {
-
-}
-
-TradeService.prototype.save = function () {
-    $.ajax({
-        type: "GET",
-        url: "trade/100",
-    }).done(function (msg) {
+define(
+    'TradeService',
+    [],
+    function saveTrade() {
+        $.ajax({
+            type: "GET",
+            url: "trade/100",
+        }).done(function (msg) {
             alert("Trade Saved: " + msg);
         }).error(function (msg) {
             alert("Error: " + msg);
         });
-
-}
+    }
+);
