@@ -18,12 +18,12 @@ define(
                 type: "GET",
                 url: "trade/100"
             }).done(function (msg) {
-                    console.log(msg);
-                    result = msg;
-                }).error(function (msg) {
-                    alert("Error: " + msg);
-                    return msg;
-                });
+                console.log(msg);
+                result = msg;
+            }).error(function (msg) {
+                alert("Error: " + msg);
+                return msg;
+            });
 
             return result;
         };

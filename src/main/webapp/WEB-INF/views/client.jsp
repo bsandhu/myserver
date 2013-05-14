@@ -50,15 +50,13 @@
 </section>
 </body>
 
+<script src="resources/js/lib/curlConfig.js"></script>
 <script src="resources/js/lib/curl.js"></script>
-<script>
-    curl({baseUrl: "resources/js",
-                paths: {"jquery": "lib/jquery-1.9.1.js",
-                    knockout: "lib/knockout-2.2.1.js"}},
 
-            ["knockout", "app/ticket/TicketViewModel"],
-            function (ko, TicketViewModel) {
-                ko.applyBindings(new TicketViewModel())
-            });
+<script>
+    curl(["knockout", "app/ticket/TicketViewModel", "domReady!", "css!"],
+         function (ko, TicketViewModel) {
+            ko.applyBindings(new TicketViewModel())
+        });
 </script>
 </html>
