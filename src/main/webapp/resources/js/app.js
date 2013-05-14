@@ -12,10 +12,8 @@
 //except for 'app' ones, which are in a sibling
 //directory.
 requirejs.config({
-    baseUrl: 'js/lib',
+    baseUrl: 'resources/js',
     paths: {
-        app: '../app',
-        jquery: 'jquery-1.9.1',
-        knockout: 'knockout-2.2.1'
+        app: 'app'
     }
 });

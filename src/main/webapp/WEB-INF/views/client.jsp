@@ -15,9 +15,11 @@
 <section>
     <form data-bind="submit: saveTrade">
         <div style="width: 400px; border-width: 1px; border-color: darkolivegreen; border-style: solid">
-            <div data-bind="visible: errors">Error</div>
+            <div data-bind="visible: status.length > 0">
+                <span data-bind="text: status"/>
+            </div>
 
-            <div><span class="label">Tranche</span><span><input data-bind="value: TrancheId"/></span></div>
+            <div><span class="label">Tranche</span><span><input data-bind="value: trancheId"/></span></div>
             <div><span class="label">Quantity</span><span><input type="text"/></span></div>
             <div><span class="label">Price</span><span><input type="text"/></span></div>
             <div><span class="label">Trade Date</span><span><input type="text"/></span></div>
@@ -47,6 +49,16 @@
 
 </section>
 </body>
-<script type="text/javascript" src="resources/js/libs/require-2.1.6.js"
-        data-main="resources/js/ticket/ticketViewModel.js"></script>
+
+<script src="resources/js/lib/curl.js"></script>
+<script>
+    curl({baseUrl: "resources/js",
+                paths: {"jquery": "lib/jquery-1.9.1.js",
+                    knockout: "lib/knockout-2.2.1.js"}},
+
+            ["knockout", "app/ticket/TicketViewModel"],
+            function (ko, TicketViewModel) {
+                ko.applyBindings(new TicketViewModel())
+            });
+</script>
 </html>

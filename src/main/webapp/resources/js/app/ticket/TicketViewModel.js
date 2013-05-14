@@ -6,15 +6,21 @@
  * To change this template use File | Settings | File Templates.
  */
 define(
-    'TradeViewModel',
-    ['knockout', 'domReady!'],
-    function(ko, tradeService) {
+    ['knockout', 'app/ticket/TradeService'],
+    function (ko, tradeService) {
+        "use strict";
 
-        ;
-        return {
-            TradeViewModel: function() {
-                this.trancheId = ko.observable(100);
-            };
+        function TicketViewModel() {
+            this.trancheId = ko.observable(100);
+            this.status = ko.observable('');
+        }
+
+        TicketViewModel.prototype.saveTrade = function () {
+            var msg = tradeService.saveTrade();
+            console.log(msg);
+            this.status = msg;
         };
+
+        return TicketViewModel;
     }
 );

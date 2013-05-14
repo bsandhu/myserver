@@ -7,16 +7,28 @@
  */
 
 define(
-    'TradeService',
-    [],
-    function saveTrade() {
-        $.ajax({
-            type: "GET",
-            url: "trade/100",
-        }).done(function (msg) {
-            alert("Trade Saved: " + msg);
-        }).error(function (msg) {
-            alert("Error: " + msg);
-        });
+    ["jquery"],
+    function ($) {
+        "use strict";
+
+        var obj = {};
+        obj.saveTrade = function () {
+            var result;
+            $.ajax({
+                type: "GET",
+                url: "trade/100"
+            }).done(function (msg) {
+                    console.log(msg);
+                    result = msg;
+                }).error(function (msg) {
+                    alert("Error: " + msg);
+                    return msg;
+                });
+
+            return result;
+        };
+
+        return obj;
     }
 );
+
