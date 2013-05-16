@@ -12,14 +12,14 @@ define(
 
         function TicketViewModel() {
             this.trancheId = ko.observable(100);
-            this.quantity = ko.observable(100);
+            this.quantity = ko.observable(1000000);
             this.price = ko.observable(100);
             this.tradeDate = ko.observable();
             this.entryDate = ko.observable(new Date());
             this.bookName = ko.observable();
             this.counterParty = ko.observable("BlackRock");
-            this.notes = ko.observable(100);
-            this.buySell = ko.observable(100);
+            this.notes = ko.observable("Late entry");
+            this.buySell = ko.observable('Buy');
 
             this._bookNames = ko.observableArray([]);
             this._status = ko.observable('');

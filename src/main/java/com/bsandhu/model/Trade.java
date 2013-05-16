@@ -4,25 +4,31 @@ import java.util.Date;
 
 public class Trade {
 
-    private int quantity;
+    private String tradeId;
+    private double quantity;
     private int trancheId;
     private Date tradeDate;
     private String entryDate;
     private String counterParty;
     private String bookName;
-    private int notes;
-    private int price;
-    private int buySell;
+    private String notes;
+    private double price;
+    private String buySell;
+    private boolean isActive;
 
-    public void setTradeDate(Date tradeDate) {
-        this.tradeDate = tradeDate;
+    public String getTradeId() {
+        return tradeId;
     }
 
-    public int getQuantity() {
+    public void setTradeId(String tradeId) {
+        this.tradeId = tradeId;
+    }
+
+    public double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(double quantity) {
         this.quantity = quantity;
     }
 
@@ -32,6 +38,14 @@ public class Trade {
 
     public void setTrancheId(int trancheId) {
         this.trancheId = trancheId;
+    }
+
+    public Date getTradeDate() {
+        return tradeDate;
+    }
+
+    public void setTradeDate(Date tradeDate) {
+        this.tradeDate = tradeDate;
     }
 
     public String getEntryDate() {
@@ -58,28 +72,36 @@ public class Trade {
         this.bookName = bookName;
     }
 
-    public int getNotes() {
+    public String getNotes() {
         return notes;
     }
 
-    public void setNotes(int notes) {
+    public void setNotes(String notes) {
         this.notes = notes;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public int getBuySell() {
+    public String getBuySell() {
         return buySell;
     }
 
-    public void setBuySell(int buySell) {
+    public void setBuySell(String buySell) {
         this.buySell = buySell;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
     @Override
@@ -87,13 +109,14 @@ public class Trade {
         return "Trade{" +
                 "quantity=" + quantity +
                 ", trancheId=" + trancheId +
-                ", tradeDate='" + tradeDate + '\'' +
+                ", tradeDate=" + tradeDate +
                 ", entryDate='" + entryDate + '\'' +
-                ", counterParty=" + counterParty +
-                ", bookName=" + bookName +
-                ", notes=" + notes +
+                ", counterParty='" + counterParty + '\'' +
+                ", bookName='" + bookName + '\'' +
+                ", notes='" + notes + '\'' +
                 ", price=" + price +
                 ", buySell=" + buySell +
+                ", isActive=" + isActive +
                 '}';
     }
 }

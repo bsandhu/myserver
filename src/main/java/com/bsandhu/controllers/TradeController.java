@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -25,16 +26,14 @@ public class TradeController {
         this.service = service;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/trades", method = RequestMethod.GET)
     public
     @ResponseBody
-    String list(@PathVariable("id") String id) {
-        logger.info("Trade info for: " + id);
-        Trade trade = service.getTrade(id);
-
+    String list() {
+        logger.info("Listing trades");
         ObjectMapper mapper = new ObjectMapper();
         try {
-            return mapper.writeValueAsString(trade);
+            return mapper.writeValueAsString(service.getAllTrades());
         } catch (Exception e) {
             e.printStackTrace();
             return "Error";

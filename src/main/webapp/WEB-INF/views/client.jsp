@@ -15,8 +15,10 @@
 </head>
 <body>
 <section>
-    <div id="jqxsplitter" style="background-color: #FFFFAF">
-        <div style="height: 30%; min-height:250px; width: 400px; border-width: 1px; border-color: darkolivegreen; border-style: solid; padding: 2px">
+    <div id="jqxsplitter"
+         data-bind="jqxSplitter:{width: '100%', height: '99%', panels: [{size: '30%'},{size: '70%'}], resizable: true, orientation: 'horizontal', showSplitBar: 'false'}"
+         style="background-color: #FFFFAF">
+        <div style="height:250px; width: 400px; border-width: 1px; border-color: darkolivegreen; border-style: solid; padding: 2px">
             <form data-bind="submit: saveTrade">
                 <div id="foo" style="display: inline-block; width: 100%" data-bind="visible: _showStatus">
                     <div data-bind="text: _status" style="display: inline-block; width: 80%"></div>
@@ -63,8 +65,14 @@
                 </div>
             </form>
         </div>
-        <div style="height: 50%; background-color: #e0e0e0; display: block; clear: both">
-            <h1>FOO</h1>
+        <div style="background-color: #e0e0e0; display: block; clear: both">
+            <div data-bind="jqxGrid: {source: trades, autoheight: true,
+                 columns: [
+                    { text: 'TradeId',      dataField: 'name',  width: 200 },
+                    { text: 'Counterparty', dataField: 'sales', width: 200, cellsalign: 'right' },
+                    { text: 'Price',        dataField: 'price', width: 200, cellsformat: 'c2', cellsalign: 'right' }
+                ]}">
+            </div>
         </div>
     </div>
 </section>
@@ -80,12 +88,9 @@
             })
             .next(["js!ko-jqueryui"])
             .next(["js!jqxcore"])
-            .next(["js!jqxbuttons", "js!jqxsplitter", "js!ko-jqx"])
+            .next(["js!jqxbuttons", "js!jqxsplitter", "js!ko-jqx", "ko-bindings"])
             .next(["knockout", "app/ticket/TicketViewModel", "jquery"], function (ko, TicketViewModel, $) {
                 ko.applyBindings(new TicketViewModel());
-                $(document).ready(function () {
-                    $("#jqxSplitter").jqxSplitter();
-                });
             });
 </script>
 </html>
