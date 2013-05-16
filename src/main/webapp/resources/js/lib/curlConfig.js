@@ -11,5 +11,9 @@ curl = {baseUrl: "resources/js",
                 log: "lib/log4javascript.js",
                 "jqueryui": "lib/jquery-ui-1.10.3.custom.js",
                 "ko-jqueryui" : "lib/knockout-jqueryui.js",
-                "stringjs": "lib/string.js"}
+                "ko-jqx": "lib/jqwidgets/jqxknockout.js",
+                "stringjs": "lib/string.js",
+                "jqxcore": "lib/jqwidgets/jqxcore.js",
+                "jqxbuttons": "lib/jqwidgets/jqxbuttons.js",
+                "jqxsplitter": "lib/jqwidgets/jqxsplitter.js"}
         };
