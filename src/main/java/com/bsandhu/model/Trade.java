@@ -7,70 +7,96 @@ import java.util.Random;
 
 public class Trade {
 
-	private long quantity;
-	private String id;
-	private Date tradeDate;
-	private Date entryDate;
-	private List<Instrument> instruments;
-	private Entity counterParty;
-	private boolean isActive;
-	private Random random = new Random();
+    private int quantity;
+    private int trancheId;
+    private Date tradeDate;
+    private String entryDate;
+    private int counterParty;
+    private int bookName;
+    private int notes;
+    private int price;
+    private int buySell;
 
-	public boolean isActive() {
-		return true;
-	}
+    public void setTradeDate(Date tradeDate) {
+        this.tradeDate = tradeDate;
+    }
 
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
-	public long getQuantity() {
-		return random.nextInt(10000);
-	}
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-	public void setQuantity(long quantity) {
-		this.quantity = quantity;
-	}
+    public int getTrancheId() {
+        return trancheId;
+    }
 
-	public String getId() {
-		return String.valueOf(random.nextInt(10000));
-	}
+    public void setTrancheId(int trancheId) {
+        this.trancheId = trancheId;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getEntryDate() {
+        return entryDate;
+    }
 
-	public Date getTradeDate() {
-		return new Date();
-	}
+    public void setEntryDate(String entryDate) {
+        this.entryDate = entryDate;
+    }
 
-	public void setTradeDate(Date tradeDate) {
-		this.tradeDate = tradeDate;
-	}
+    public int getCounterParty() {
+        return counterParty;
+    }
 
-	public Date getEntryDate() {
-		return new Date();
-	}
+    public void setCounterParty(int counterParty) {
+        this.counterParty = counterParty;
+    }
 
-	public void setEntryDate(Date entryDate) {
-		this.entryDate = entryDate;
-	}
+    public int getBookName() {
+        return bookName;
+    }
 
-	public List<Instrument> getInstruments() {
-		return Arrays.asList(new Instrument(), new Instrument(),
-				new Instrument());
-	}
+    public void setBookName(int bookName) {
+        this.bookName = bookName;
+    }
 
-	public void setInstruments(List<Instrument> instruments) {
-		this.instruments = instruments;
-	}
+    public int getNotes() {
+        return notes;
+    }
 
-	public Entity getCounterParty() {
-		return new Entity();
-	}
+    public void setNotes(int notes) {
+        this.notes = notes;
+    }
 
-	public void setCounterParty(Entity counterParty) {
-		this.counterParty = counterParty;
-	}
+    public int getPrice() {
+        return price;
+    }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getBuySell() {
+        return buySell;
+    }
+
+    public void setBuySell(int buySell) {
+        this.buySell = buySell;
+    }
+
+    @Override
+    public String toString() {
+        return "Trade{" +
+                "quantity=" + quantity +
+                ", trancheId=" + trancheId +
+                ", tradeDate='" + tradeDate + '\'' +
+                ", entryDate='" + entryDate + '\'' +
+                ", counterParty=" + counterParty +
+                ", bookName=" + bookName +
+                ", notes=" + notes +
+                ", price=" + price +
+                ", buySell=" + buySell +
+                '}';
+    }
 }

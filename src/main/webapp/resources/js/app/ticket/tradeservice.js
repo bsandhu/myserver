@@ -7,25 +7,20 @@
  */
 
 define(
-    ["jquery"],
-    function ($) {
+    ["jquery", "log"],
+    function ($, log) {
         "use strict";
 
         var obj = {};
-        obj.saveTrade = function () {
-            var result;
-            $.ajax({
-                type: "GET",
-                url: "trade/100"
-            }).done(function (msg) {
-                console.log(msg);
-                result = msg;
-            }).error(function (msg) {
-                alert("Error: " + msg);
-                return msg;
-            });
 
-            return result;
+        obj.saveTrade = function (tradeData, callback) {
+            log.debug("Calling trade service to save");
+            $.ajax({
+                type: "POST",
+                url: "trade/save",
+                data: tradeData,
+                contentType: "application/json"
+            }).always(callback);
         };
 
         return obj;

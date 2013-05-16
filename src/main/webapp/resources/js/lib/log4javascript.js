@@ -5881,7 +5881,7 @@ var log4javascript = (function() {
 
 if (typeof define == 'function' && define.amd) {
     define(function(){
-        var log = log4javascript.getDefaultLogger()
+        var log = log4javascript.getLogger()
         var consoleAppender = new log4javascript.BrowserConsoleAppender();
 
         // Add the appender to the logger

@@ -15,17 +15,29 @@
 <section>
     <form data-bind="submit: saveTrade">
         <div style="width: 400px; border-width: 1px; border-color: darkolivegreen; border-style: solid">
-            <div data-bind="visible: status.length > 0">
-                <span data-bind="text: status"/>
+            <div id="foo" style="display: inline-block; width: 100%" data-bind="visible: _status().length > 0">
+                <div data-bind="text: _status" style="display: inline-block; width: 80%"></div>
+                <div data-bind="click: resetStatus" style="display: inline-block; width: 18%">X</div>
             </div>
 
             <div><span class="label">Tranche</span><span><input data-bind="value: trancheId"/></span></div>
-            <div><span class="label">Quantity</span><span><input type="text"/></span></div>
-            <div><span class="label">Price</span><span><input type="text"/></span></div>
-            <div><span class="label">Trade Date</span><span><input type="text"/></span></div>
-            <div><span class="label">entry Date</span><span><input type="text"/></span></div>
-            <div><span class="label">Book</span><span><input type="text"/></span></div>
-            <div><span class="label">Counter party</span><span><input type="text"/></span></div>
+            <div><span class="label">Quantity</span><span><input data-bind="value: quantity" type="text"/></span></div>
+            <div><span class="label">Price</span><span><input data-bind="value: price" type="text"/></span></div>
+            <div>
+                <span class="label">Trade Date</span>
+                <span><input data-bind="datepicker: { onSelect:onSelect, showWeek:'true', changeMonth:'true', dateFormat:'mm-dd-yy'}, value: tradeDate" type="text"></span>
+            </div>
+            <div>
+                <span class="label">Entry Date</span>
+                <span><input data-bind="value: entryDate" type="text" disabled="true"/></span>
+            </div>
+            <div>
+                <span class="label">Book</span><span>
+                <input data-bind="value: bookName" type="text"/></span></div>
+            <div>
+                <span class="label">Counter party</span><span>
+                <input data-bind="value: counterParty" type="text"/></span>
+            </div>
 
             <div><span class="label">Notes</span>
                 <span><textarea></textarea></span></div>
@@ -46,7 +58,6 @@
     </form>
 </section>
 <section>
-
 </section>
 </body>
 
@@ -54,9 +65,13 @@
 <script src="resources/js/lib/curl.js"></script>
 
 <script>
-    curl(["knockout", "app/ticket/TicketViewModel", "domReady!"],
-         function (ko, TicketViewModel) {
-            ko.applyBindings(new TicketViewModel())
-        });
+    curl(["domReady!", "jquery", "js!jqueryui"])
+         .next(["knockout"], function(ko) {
+                window['ko'] = ko;
+            })
+         .next(["js!ko-jqueryui"])
+         .next(["knockout", "app/ticket/TicketViewModel"], function (ko, TicketViewModel) {
+                ko.applyBindings(new TicketViewModel())
+         });
 </script>
 </html>
