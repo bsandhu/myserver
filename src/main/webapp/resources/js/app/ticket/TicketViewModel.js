@@ -17,12 +17,13 @@ define(
             this.tradeDate = ko.observable();
             this.entryDate = ko.observable(new Date());
             this.bookName = ko.observable();
-            this.counterParty = ko.observable(100);
+            this.counterParty = ko.observable("BlackRock");
             this.notes = ko.observable(100);
             this.buySell = ko.observable(100);
 
             this._bookNames = ko.observableArray([]);
             this._status = ko.observable('');
+            this._showStatus = ko.observable(false);
 
             this.loadBooks();
         }
@@ -47,18 +48,21 @@ define(
 
         TicketViewModel.prototype.saveTrade = function () {
             var attr = this._status;
+            var tmpShowStatus = this._showStatus;
             var tradeData = ko.toJSON(this, filterPrivateVars);
+
             log.info('Saving trade: ' + tradeData);
 
             tradeService.saveTrade(tradeData,
                 function (data, status) {
                     log.info(status);
                     attr(status);
+                    tmpShowStatus(true);
                 });
         };
 
         TicketViewModel.prototype.resetStatus = function () {
-            this._status('');
+            this._showStatus(false);
         };
 
         TicketViewModel.prototype.onSelect = function (dateText) {

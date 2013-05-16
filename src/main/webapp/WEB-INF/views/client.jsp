@@ -14,13 +14,13 @@
 <body>
 <section>
     <form data-bind="submit: saveTrade">
-        <div style="width: 400px; border-width: 1px; border-color: darkolivegreen; border-style: solid">
-            <div id="foo" style="display: inline-block; width: 100%" data-bind="visible: _status().length > 0">
+        <div style="width: 400px; border-width: 1px; border-color: darkolivegreen; border-style: solid; padding: 2px">
+            <div id="foo" style="display: inline-block; width: 100%" data-bind="visible: _showStatus">
                 <div data-bind="text: _status" style="display: inline-block; width: 80%"></div>
-                <div data-bind="click: resetStatus" style="display: inline-block; width: 18%">X</div>
+                <div data-bind="click: resetStatus" style="display: inline-block; width: 15%">X</div>
             </div>
 
-            <div><span class="label">Tranche</span><span><input data-bind="value: trancheId"/></span></div>
+            <div><span class="label">Tranche Id</span><span><input data-bind="value: trancheId"/></span></div>
             <div><span class="label">Quantity</span><span><input data-bind="value: quantity" type="text"/></span></div>
             <div><span class="label">Price</span><span><input data-bind="value: price" type="text"/></span></div>
             <div>

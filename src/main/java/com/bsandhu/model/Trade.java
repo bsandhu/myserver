@@ -1,9 +1,6 @@
 package com.bsandhu.model;
 
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
-import java.util.Random;
 
 public class Trade {
 
@@ -11,7 +8,7 @@ public class Trade {
     private int trancheId;
     private Date tradeDate;
     private String entryDate;
-    private int counterParty;
+    private String counterParty;
     private String bookName;
     private int notes;
     private int price;
@@ -45,11 +42,11 @@ public class Trade {
         this.entryDate = entryDate;
     }
 
-    public int getCounterParty() {
+    public String getCounterParty() {
         return counterParty;
     }
 
-    public void setCounterParty(int counterParty) {
+    public void setCounterParty(String counterParty) {
         this.counterParty = counterParty;
     }
 
