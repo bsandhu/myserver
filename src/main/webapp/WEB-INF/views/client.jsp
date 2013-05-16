@@ -15,7 +15,7 @@
 </head>
 <body>
 <section>
-    <div id="jqxsplitter" style="display: block">
+    <div id="jqxsplitter" style="background-color: #FFFFAF">
         <div style="height: 30%; min-height:250px; width: 400px; border-width: 1px; border-color: darkolivegreen; border-style: solid; padding: 2px">
             <form data-bind="submit: saveTrade">
                 <div id="foo" style="display: inline-block; width: 100%" data-bind="visible: _showStatus">
@@ -83,7 +83,9 @@
             .next(["js!jqxbuttons", "js!jqxsplitter", "js!ko-jqx"])
             .next(["knockout", "app/ticket/TicketViewModel", "jquery"], function (ko, TicketViewModel, $) {
                 ko.applyBindings(new TicketViewModel());
-//                $("#jqxSplitter").jqxSplitter();
+                $(document).ready(function () {
+                    $("#jqxSplitter").jqxSplitter();
+                });
             });
 </script>
 </html>
