@@ -6,8 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 define(
-    ['knockout', 'app/ticket/TradeService', 'log', 'stringjs'],
-    function (ko, tradeService, log, S) {
+    ['knockout', 'app/ticket/TradeService', 'log', 'stringjs', 'jquery'],
+    function (ko, tradeService, log, S, $) {
         "use strict";
 
         function TicketViewModel() {
@@ -16,12 +16,23 @@ define(
             this.price = ko.observable(100);
             this.tradeDate = ko.observable();
             this.entryDate = ko.observable(new Date());
-            this.bookName = ko.observable(100);
+            this.bookName = ko.observable();
             this.counterParty = ko.observable(100);
             this.notes = ko.observable(100);
             this.buySell = ko.observable(100);
 
+            this._bookNames = ko.observableArray([]);
             this._status = ko.observable('');
+
+            this.loadBooks();
+        }
+
+        TicketViewModel.prototype.loadBooks = function () {
+            var tmp = this._bookNames;
+            $.get('refdata/books', function (data) {
+                tmp(ko.toJS(data));
+                log.info('Books: ' + data);
+            });
         }
 
         function filterPrivateVars(key, value) {

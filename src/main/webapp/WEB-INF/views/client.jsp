@@ -32,16 +32,18 @@
                 <span><input data-bind="value: entryDate" type="text" disabled="true"/></span>
             </div>
             <div>
-                <span class="label">Book</span><span>
-                <input data-bind="value: bookName" type="text"/></span></div>
+                <span class="label">Book</span>
+                <span><select data-bind="options: _bookNames, value:bookName" type="text"></select></span>
+            </div>
             <div>
-                <span class="label">Counter party</span><span>
-                <input data-bind="value: counterParty" type="text"/></span>
+                <span class="label">Counter party</span>
+                <span><input data-bind="value: counterParty" type="text"/></span>
             </div>
 
-            <div><span class="label">Notes</span>
-                <span><textarea></textarea></span></div>
-
+            <div>
+                <span class="label">Notes</span>
+                <span><textarea></textarea></span>
+            </div>
             <div>
                 <span class="label">Buy/Sell</span>
                 <span>
@@ -65,7 +67,8 @@
 <script src="resources/js/lib/curl.js"></script>
 
 <script>
-    curl(["domReady!", "jquery", "js!jqueryui"])
+    curl(["domReady!", "jquery"])
+         .next(["js!jqueryui"])
          .next(["knockout"], function(ko) {
                 window['ko'] = ko;
             })

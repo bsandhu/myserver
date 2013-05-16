@@ -12,7 +12,7 @@ public class Trade {
     private Date tradeDate;
     private String entryDate;
     private int counterParty;
-    private int bookName;
+    private String bookName;
     private int notes;
     private int price;
     private int buySell;
@@ -53,11 +53,11 @@ public class Trade {
         this.counterParty = counterParty;
     }
 
-    public int getBookName() {
+    public String getBookName() {
         return bookName;
     }
 
-    public void setBookName(int bookName) {
+    public void setBookName(String bookName) {
         this.bookName = bookName;
     }
 
