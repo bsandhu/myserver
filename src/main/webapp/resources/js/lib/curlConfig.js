@@ -16,5 +16,17 @@ curl = {baseUrl: "resources/js",
                 "stringjs": "lib/string.js",
                 "jqxcore": "lib/jqwidgets/jqxcore.js",
                 "jqxbuttons": "lib/jqwidgets/jqxbuttons.js",
-                "jqxsplitter": "lib/jqwidgets/jqxsplitter.js"}
+                "jqxsplitter": "lib/jqwidgets/jqxsplitter.js",
+                "jqxgrid": "lib/jqwidgets/jqxgrid.js",
+                "jqxdata": "lib/jqwidgets/jqxdata.js",
+                "jqxscrollbar": "lib/jqwidgets/jqxscrollbar.js",
+                "jqxmenu": "lib/jqwidgets/jqxmenu.js",
+                "jqxlistbox": "lib/jqwidgets/jqxlistbox.js",
+                "jqxdropdownlist": "lib/jqwidgets/jqxdropdownlist.js",
+                "jqxgrid.selection": "lib/jqwidgets/jqxgrid.selection.js",
+                "jqxgrid.columnsresize": "lib/jqwidgets/jqxgrid.columnsresize.js",
+                "jqxgrid.filter": "lib/jqwidgets/jqxgrid.filter.js",
+                "jqxgrid.sort": "lib/jqwidgets/jqxgrid.sort.js",
+                "jqxgrid.pager": "lib/jqwidgets/jqxgrid.pager.js",
+                "jqxgrid.grouping": "lib/jqwidgets/jqxgrid.grouping.js"}
         };

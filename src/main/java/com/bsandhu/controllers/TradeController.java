@@ -26,14 +26,14 @@ public class TradeController {
         this.service = service;
     }
 
-    @RequestMapping(value = "/trades", method = RequestMethod.GET)
+    @RequestMapping(value = "/trades/{count}", method = RequestMethod.GET)
     public
     @ResponseBody
-    String list() {
+    String list(@PathVariable("count") int count) {
         logger.info("Listing trades");
         ObjectMapper mapper = new ObjectMapper();
         try {
-            return mapper.writeValueAsString(service.getAllTrades());
+            return mapper.writeValueAsString(service.getAllTrades().subList(0, count));
         } catch (Exception e) {
             e.printStackTrace();
             return "Error";

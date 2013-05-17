@@ -1,8 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -12,85 +9,38 @@
     <link rel="stylesheet" href="resources/js/lib/jqwidgets/styles/jqx.darkblue.css" type="text/css"/>
 
     <title>HTML5 - POC</title>
+    <script src="resources/js/lib/curlConfig.js"></script>
+    <script src="resources/js/lib/curl.js"></script>
+
 </head>
 <body>
+<%--data-bind="jqxSplitter:{width: '100%', height: '99%', panels: [{size: '30%'},{size: '70%'}], resizable: true, orientation: 'horizontal', showSplitBar: 'false'}"--%>
 <section>
-    <div id="jqxsplitter"
-         data-bind="jqxSplitter:{width: '100%', height: '99%', panels: [{size: '30%'},{size: '70%'}], resizable: true, orientation: 'horizontal', showSplitBar: 'false'}"
-         style="background-color: #FFFFAF">
-        <div style="height:250px; width: 400px; border-width: 1px; border-color: darkolivegreen; border-style: solid; padding: 2px">
-            <form data-bind="submit: saveTrade">
-                <div id="foo" style="display: inline-block; width: 100%" data-bind="visible: _showStatus">
-                    <div data-bind="text: _status" style="display: inline-block; width: 80%"></div>
-                    <div data-bind="click: resetStatus" style="display: inline-block; width: 15%">X</div>
-                </div>
-                <div><span class="label">Tranche Id</span><span><input data-bind="value: trancheId"/></span></div>
-                <div><span class="label">Quantity</span><span><input data-bind="value: quantity"
-                                                                     type="text"/></span></div>
-                <div><span class="label">Price</span><span><input data-bind="value: price" type="text"/></span>
-                </div>
-                <div>
-                    <span class="label">Trade Date</span>
-                    <span><input
-                            data-bind="datepicker: { onSelect:onSelect, showWeek:'true', changeMonth:'true', dateFormat:'mm-dd-yy'}, value: tradeDate"
-                            type="text"></span>
-                </div>
-                <div>
-                    <span class="label">Entry Date</span>
-                    <span><input data-bind="value: entryDate" type="text" disabled="true"/></span>
-                </div>
-                <div>
-                    <span class="label">Book</span>
-                    <span><select data-bind="options: _bookNames, value:bookName" type="text"></select></span>
-                </div>
-                <div>
-                    <span class="label">Counter party</span>
-                    <span><input data-bind="value: counterParty" type="text"/></span>
-                </div>
-                <div>
-                    <span class="label">Notes</span>
-                    <span><textarea></textarea></span>
-                </div>
-                <div>
-                    <span class="label">Buy/Sell</span>
-                        <span>
-                            <select name="Buy/sell">
-                                <option>Buy</option>
-                                <option>Sell</option>
-                            </select>
-                        </span>
-                </div>
-                <div style="float: right">
-                    <input type="submit" value="Save" data-bind="jqxButton:{theme:'darkblue', width:'100'}"/>
-                </div>
-            </form>
-        </div>
-        <div style="background-color: #e0e0e0; display: block; clear: both">
-            <div data-bind="jqxGrid: {source: trades, autoheight: true,
-                 columns: [
-                    { text: 'TradeId',      dataField: 'name',  width: 200 },
-                    { text: 'Counterparty', dataField: 'sales', width: 200, cellsalign: 'right' },
-                    { text: 'Price',        dataField: 'price', width: 200, cellsformat: 'c2', cellsalign: 'right' }
-                ]}">
-            </div>
-        </div>
+    <div id="jqxsplitter" style="background-color: #fdfefe">
+        <%@include file="TicketView.jsp"%>
+        <%@include file="TradeBlotterView.jsp"%>
     </div>
 </section>
 </body>
 
-<script src="resources/js/lib/curlConfig.js"></script>
-<script src="resources/js/lib/curl.js"></script>
 <script>
     curl(["domReady!", "jquery"])
             .next(["js!jqueryui"])
             .next(["knockout"], function (ko) {
                 window['ko'] = ko;
             })
-            .next(["js!ko-jqueryui"])
             .next(["js!jqxcore"])
-            .next(["js!jqxbuttons", "js!jqxsplitter", "js!ko-jqx", "ko-bindings"])
-            .next(["knockout", "app/ticket/TicketViewModel", "jquery"], function (ko, TicketViewModel, $) {
-                ko.applyBindings(new TicketViewModel());
+            .next(["js!jqxbuttons", "js!jqxsplitter", "js!jqxgrid", "js!jqxdata", "js!jqxscrollbar", "js!jqxmenu",
+                   "js!jqxlistbox", "js!jqxdropdownlist"])
+            .next(["js!jqxgrid.selection", "js!jqxgrid.columnsresize", "js!jqxgrid.filter", "js!jqxgrid.sort", "js!jqxgrid.pager", "js!jqxgrid.grouping"])
+            .next(["js!ko-jqueryui", "js!ko-jqx", "ko-bindings"])
+            .next(["knockout",
+                    "app/ticket/TicketViewModel",
+                    "app/blotter/TradeBlotterViewModel",
+                    "jquery"],function (ko, TicketViewModel, TradeBlotterViewModel, $) {
+
+                ko.applyBindings(new TicketViewModel(), document.getElementById("ticketView"));
+                ko.applyBindings(new TradeBlotterViewModel(), document.getElementById("tradeBlotterView"));
             });
 </script>
 </html>
