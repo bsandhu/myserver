@@ -11,16 +11,13 @@
     <title>HTML5 - POC</title>
     <script src="resources/js/lib/curlConfig.js"></script>
     <script src="resources/js/lib/curl.js"></script>
-
 </head>
 <body>
-<%--data-bind="jqxSplitter:{width: '100%', height: '99%', panels: [{size: '30%'},{size: '70%'}], resizable: true, orientation: 'horizontal', showSplitBar: 'false'}"--%>
-<section>
-    <div id="jqxsplitter" style="background-color: #fdfefe">
+    <div id="jqxsplitter"
+         data-bind="jqxSplitter:{}">
         <%@include file="TicketView.jsp"%>
         <%@include file="TradeBlotterView.jsp"%>
     </div>
-</section>
 </body>
 
 <script>
@@ -39,6 +36,7 @@
                     "app/blotter/TradeBlotterViewModel",
                     "jquery"],function (ko, TicketViewModel, TradeBlotterViewModel, $) {
 
+                ko.applyBindingsToNode(document.getElementById("jqxsplitter"));
                 ko.applyBindings(new TicketViewModel(), document.getElementById("ticketView"));
                 ko.applyBindings(new TradeBlotterViewModel(), document.getElementById("tradeBlotterView"));
             });

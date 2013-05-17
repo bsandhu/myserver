@@ -20,7 +20,10 @@ define(["knockout", "log", "jquery", "js!jqxcore", "js!jqxsplitter", "domReady!"
         },
         update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
             log.info("Splitter binding update");
-            $(element).jqxSplitter({width: '100%', height: '99%', panels: [{size: '30%'},{size: '70%'}], resizable: true, orientation: 'horizontal', showSplitBar: 'false'});
+            $(element).jqxSplitter({width: '100%', height: '99%', panels: [
+                {size: '30%'},
+                {size: '70%'}
+            ], resizable: true, orientation: 'horizontal'});
         }
     };
 
