@@ -4,6 +4,8 @@
         sortable: true,
         showgroupsheader: true,
         groupable: true,
+        autoshowfiltericon: true,
+        filterable: true,
         columns: [
         { text: 'tradeDate', datafield: 'tradeDate', width: 180 },
         { text: 'entryDate', datafield: 'entryDate', width: 80 },
