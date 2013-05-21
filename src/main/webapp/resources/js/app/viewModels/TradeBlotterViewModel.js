@@ -7,8 +7,8 @@
  */
 
 define(
-    ['knockout', 'log', 'jquery', 'postal'],
-    function (ko, log, $, postal) {
+    ['knockout', 'log', 'jquery', 'postal', 'app/utils/PostalConfig'],
+    function (ko, log, $, postal, config) {
         "use strict";
 
         function TradeBlotterViewModel() {
@@ -38,10 +38,8 @@ define(
             this.loadTrades();
         }
 
-        TradeBlotterViewModel.prototype.CHANNEL_NAME = 'TradeBlotterChannel';
-
         function raiseSelectionEvent(msg) {
-            var channel = postal.channel(TradeBlotterViewModel.CHANNEL_NAME);
+            var channel = postal.channel(config.TRADE_BLOTTER_CHANNEL);
             channel.publish("Selection", msg);
             log.debug("Published selection ev");
         }
