@@ -1,12 +1,12 @@
 <div id="eventsView">
     <div data-bind="kendoWindow: {
                     isOpen: historyVisible,
-                    draggable: false,
-                    title: 'Event history',
+                    draggable: true,
+                    title: 'Event history (Local storage)',
                     height: winHeight,
                     width: winWidth,
                     widget: widget,
-                    resizable: false,
+                    resizable: true,
                     visible: historyVisible,
                     actions: ['Close', 'Minimize', 'Maximize'],
                     modal: false}">
@@ -17,8 +17,8 @@
     </div>
 
 
-    <div style="padding: 3px; top:2px; left:2px; position: absolute;">
-        <button data-bind="click: showHistory">Show full history</button>
+    <div style="padding: 3px; bottom:2px; right:2px; position: absolute;">
+        <button data-bind="click: clearHistory">Clear history</button>
     </div>
 
 </div>
