@@ -1,16 +1,31 @@
 <div id="eventsView">
     <div data-bind="kendoWindow: {
-                        isOpen: true, visible: false,
-                        actions: ['Close', 'Minimize', 'Maximize', 'Refresh'],
-                        modal: false }">
-        <div data-bind="kendoListView: { data: events, template: 'listTmpl', useKOTemplates: true }"></div>
+                    isOpen: historyVisible,
+                    draggable: false,
+                    title: 'Event history',
+                    height: winHeight,
+                    width: winWidth,
+                    widget: widget,
+                    visible: historyVisible,
+                    actions: ['Close', 'Minimize', 'Maximize'],
+                    modal: false}">
+        <div data-bind="kendoListView: { data: events,
+                                    template: 'listTmpl',
+                                    useKOTemplates: true }">
+        </div>
     </div>
+
+
+    <div style="padding: 3px; top:2px; left:2px; position: absolute;">
+        <button data-bind="click: showHistory">Show full history</button>
+    </div>
+
 </div>
 
 <script id="listTmpl" type="text/html">
-    <div>
-        <span data-bind="text: id"></span>
-        <span data-bind="text: name"></span>
-        <a href="#" data-bind="click: $root.removeItem"> x </a>
+    <div style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ffebaf">
+        <b>Ticket: </b>
+        <span data-bind="text: id"></span></b>
+        (<span data-bind="text: name"></span>)
     </div>
 </script>

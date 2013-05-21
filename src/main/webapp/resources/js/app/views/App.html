@@ -19,21 +19,21 @@
                                                   panes: [ {collapsible: false, size: '40%'},
                                                            {collapsible: false, size: '60%'}]}">
     <div id="topSplitter" data-bind="kendoSplitter: {}">
-        <div>
-            <div data-bind="template: {name:'TicketView', data:ticketViewModel}"></div>
+        <div id="topLeftSplitter">
+            <div data-bind="module: {template:'TicketView', name:'TicketViewModel'}"></div>
         </div>
-        <div>
-            <div data-bind="template: {name:'EventsView', data:eventsViewModel}"></div>
+        <div id="topRightSplitter">
+            <div data-bind="module: {template:'EventsView', name:'EventsViewModel'}"></div>
         </div>
     </div>
-    <div data-bind="template: {name:'TradeBlotterView', data:tradeBlotterViewModel}"></div>
+    <div data-bind="module: {template:'TradeBlotterView', name:'TradeBlotterViewModel'}"></div>
 </div>
 </body>
 
 <script>
     curl(["domReady!", "jquery"])
             .next(["js!jqueryui"])
-            .next(["knockout"])
+            .next(["knockout"], function(ko) {window['ko'] = ko;})
             .next(["ko-amd-helpers"])
             .next(["js!ko-jqueryui"])
             .next(["js!kendo.web"])
@@ -41,6 +41,7 @@
             .next(["knockout", "app/viewModels/AppViewModel"], function (ko, AppViewModel) {
                 ko.amdTemplateEngine.defaultPath = "app/views"
                 ko.amdTemplateEngine.defaultSuffix = ".html";
+                ko.bindingHandlers.module.baseDir = "app/viewModels"
                 ko.applyBindings(new AppViewModel());
             });
 </script>

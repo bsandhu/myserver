@@ -13,13 +13,13 @@
 </head>
 
 <body>
-    <div data-bind="template: {name:'TradeBlotterView', data:tradeBlotterViewModel}"></div>
+    <div data-bind="template: {name:'EventsView', data:eventsViewModel}"></div>
 </body>
 
 <script>
     curl(["domReady!", "jquery"])
             .next(["js!jqueryui"])
-            .next(["knockout"])
+            .next(["knockout"], function(ko) {window['ko'] = ko;})
             .next(["ko-amd-helpers"])
             .next(["js!ko-jqueryui"])
             .next(["js!kendo.web"])
