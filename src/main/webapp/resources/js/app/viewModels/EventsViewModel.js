@@ -6,25 +6,16 @@ define(
         function EventsViewModel() {
             this.events = ko.observableArray([]);
             this.historyVisible = ko.observable(true);
-            this.winHeight = ko.observable(200);
-            this.winWidth = ko.observable(200);
+            this.winHeight = ko.observable($('#topRightSplitter').height() - 50);
+            this.winWidth = ko.observable($('#topRightSplitter').width());
             this.widget = ko.observable(null);
 
             this.setupSubscriptions();
         }
 
-        EventsViewModel.prototype.setupWindowSize = function () {
-         //                _winHeight($('#topRightSplitter').height());
-                newValue.width = 500;
-                _winHeight(500);
-                _winWidth($('#topRightSplitter').width());
-                log.info($('#topRightSplitter').width());
-//                debugger;
-        };
-
         EventsViewModel.prototype.setupSubscriptions = function () {
-            var channel = postal.channel(config.TRADE_BLOTTER_CHANNEL);
-            var _events = this.events;
+            var channel = postal.channel(config.TRADE_BLOTTER_CHANNEL),
+                _events = this.events;
 
             channel.subscribe('Selection', function (msg) {
                 log.debug("Got Selection ev. " + msg);
