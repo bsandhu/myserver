@@ -17,7 +17,7 @@ define(
             log.debug("Calling trade service to save");
             $.ajax({
                 type: "POST",
-                url: "trade/save",
+                url: "../../../../trade/save",
                 data: tradeData,
                 contentType: "application/json"
             }).always(callback);

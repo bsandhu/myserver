@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="../../../css/app.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="../../../css/kendo.common.min.css"/>
+    <link rel="stylesheet" href="../../../css/kendo.default.min.css"/>
+
+    <title>HTML5 - POC</title>
+    <script src="../../../js/lib/curlConfig.js"></script>
+    <script src="../../../js/lib/curl.js"></script>
+</head>
+
+<body>
+<div id="splitter"
+     style="border-color: #ff0000; border-style: solid; border-width: 3px; height: 100%"
+     data-bind="kendoSplitter: {orientation: 'vertical',
+                                                  panes: [ {collapsible: false, size: '40%'},
+                                                           {collapsible: false, size: '60%'}]}">
+    <div id="topSplitter" data-bind="kendoSplitter: {}">
+        <div>
+            <div data-bind="template: {name:'TicketView', data:ticketViewModel}"></div>
+        </div>
+        <div>
+            <div data-bind="template: {name:'EventsView', data:eventsViewModel}"></div>
+        </div>
+    </div>
+    <div data-bind="template: {name:'TradeBlotterView', data:tradeBlotterViewModel}"></div>
+</div>
+</body>
+
+<script>
+    curl(["domReady!", "jquery"])
+            .next(["js!jqueryui"])
+            .next(["knockout"])
+            .next(["ko-amd-helpers"])
+            .next(["js!ko-jqueryui"])
+            .next(["js!kendo.web"])
+            .next(["ko-kendoui"])
+            .next(["knockout", "app/viewModels/AppViewModel"], function (ko, AppViewModel) {
+                ko.amdTemplateEngine.defaultPath = "app/views"
+                ko.amdTemplateEngine.defaultSuffix = ".html";
+                ko.applyBindings(new AppViewModel());
+            });
+</script>
+</html>

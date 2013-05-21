@@ -10,10 +10,10 @@ public class ClientController {
 
     static Logger logger = Logger.getLogger(ClientController.class);
 
-    @RequestMapping("/client")
+    @RequestMapping("/app")
     public String simple() {
         logger.info("serving client");
-        return "client";
+        return "App";
     }
 
 }

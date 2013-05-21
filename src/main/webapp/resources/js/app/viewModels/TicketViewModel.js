@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 define(
-    ['knockout', 'app/ticket/TradeService', 'log', 'stringjs', 'jquery'],
+    ['knockout', 'app/services/TradeService', 'log', 'stringjs', 'jquery'],
     function (ko, tradeService, log, S, $) {
         "use strict";
 
@@ -30,7 +30,7 @@ define(
 
         TicketViewModel.prototype.loadBooks = function () {
             var tmp = this._bookNames;
-            $.get('refdata/books', function (data) {
+                $.get('../../../../refdata/books', function (data) {
                 tmp(ko.toJS(data));
                 log.info('Books: ' + data);
             });

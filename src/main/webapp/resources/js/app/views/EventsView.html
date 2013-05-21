@@ -1,0 +1,16 @@
+<div id="eventsView">
+    <div data-bind="kendoWindow: {
+                        isOpen: true, visible: false,
+                        actions: ['Close', 'Minimize', 'Maximize', 'Refresh'],
+                        modal: false }">
+        <div data-bind="kendoListView: { data: events, template: 'listTmpl', useKOTemplates: true }"></div>
+    </div>
+</div>
+
+<script id="listTmpl" type="text/html">
+    <div>
+        <span data-bind="text: id"></span>
+        <span data-bind="text: name"></span>
+        <a href="#" data-bind="click: $root.removeItem"> x </a>
+    </div>
+</script>

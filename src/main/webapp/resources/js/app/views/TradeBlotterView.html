@@ -1,0 +1,33 @@
+<div id="tradeBlotterView" style="height: 100%; padding: 2px">
+    <div data-bind="kendoGrid: {
+                        data: trades,
+                        widget: widget,
+                        dataSource : {
+                            schema: {
+                                    model: {
+                                        fields: {
+                                            tradeDate: { type: 'date' },
+                                            entryDate: { type: 'string' },
+                                            bookName: { type: 'string' },
+                                            notes: { type: 'string' }
+                                        }
+                                    }
+                            },
+                        },
+                        change: onChange,
+                        groupable: true,
+                        columnMenu: selectColumns,
+                        scrollable: true,
+                        filterable:true,
+                        sortable: allowSorting,
+                        selectable: selectionMode,
+                        editable: 'popup',
+                        reorderable: true,
+                        resizable: true,
+                        columns: columnSetup,
+                        }" id="tradesGrid">
+    </div>
+</div>
+
+
+

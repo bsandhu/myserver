@@ -5,28 +5,25 @@
  * Time: 3:44 PM
  * To change this template use File | Settings | File Templates.
  */
-curl = {baseUrl: "resources/js",
-        paths: {jquery: "lib/jquery-1.9.1.js",
-                knockout: "lib/knockout-2.2.1.js",
-                log: "lib/log4javascript.js",
-                "jqueryui": "lib/jquery-ui-1.10.3.custom.js",
+curl = {baseUrl: "../../../js",
+        paths: {/** Core libs */
+                "jquery"    : "lib/jquery-1.9.1.js",
+                "knockout"  : "lib/knockout-2.2.1.js",
+
+                /** Widget libs */
+                "jqueryui"  : "lib/jquery-ui-1.10.3.custom.js",
+                "kendo.web": "lib/kendo.web.js",
+
+                /** KO plugins/bindings */
+                "ko-amd-helpers": "lib/knockout-amd-helpers.js",
                 "ko-jqueryui" : "lib/knockout-jqueryui.js",
-                "ko-jqx": "lib/jqwidgets/jqxknockout.js",
+                "ko-kendoui": "lib/knockout-kendo.js",
                 "ko-bindings": "lib/knockoutbindings.js",
-                "stringjs": "lib/string.js",
-                "jqxcore": "lib/jqwidgets/jqxcore.js",
-                "jqxbuttons": "lib/jqwidgets/jqxbuttons.js",
-                "jqxsplitter": "lib/jqwidgets/jqxsplitter.js",
-                "jqxgrid": "lib/jqwidgets/jqxgrid.js",
-                "jqxdata": "lib/jqwidgets/jqxdata.js",
-                "jqxscrollbar": "lib/jqwidgets/jqxscrollbar.js",
-                "jqxmenu": "lib/jqwidgets/jqxmenu.js",
-                "jqxlistbox": "lib/jqwidgets/jqxlistbox.js",
-                "jqxdropdownlist": "lib/jqwidgets/jqxdropdownlist.js",
-                "jqxgrid.selection": "lib/jqwidgets/jqxgrid.selection.js",
-                "jqxgrid.columnsresize": "lib/jqwidgets/jqxgrid.columnsresize.js",
-                "jqxgrid.filter": "lib/jqwidgets/jqxgrid.filter.js",
-                "jqxgrid.sort": "lib/jqwidgets/jqxgrid.sort.js",
-                "jqxgrid.pager": "lib/jqwidgets/jqxgrid.pager.js",
-                "jqxgrid.grouping": "lib/jqwidgets/jqxgrid.grouping.js"}
+
+                /** Curl plugins */
+                "text": "lib/text",
+
+                /** Utils */
+                log: "lib/log4javascript.js",
+                "stringjs": "lib/string.js" }
         };
