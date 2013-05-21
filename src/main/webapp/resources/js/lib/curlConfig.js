@@ -20,10 +20,16 @@ curl = {baseUrl: "../../../js",
                 "ko-kendoui": "lib/knockout-kendo.js",
                 "ko-bindings": "lib/knockoutbindings.js",
 
+                /** Postal (pub-sub) */
+                "postal" : "lib/postal.js",
+                "postaldiags" : "lib/postal.diagnostics.js",
+
                 /** Curl plugins */
                 "text": "lib/text",
 
                 /** Utils */
                 log: "lib/log4javascript.js",
-                "stringjs": "lib/string.js" }
+                "stringjs": "lib/string.js",
+                "underscoreNonAMD": "lib/underscoreNonAMD.js",
+                "underscore": "lib/underscore.js"}
         };

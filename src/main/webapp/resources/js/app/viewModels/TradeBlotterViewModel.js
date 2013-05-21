@@ -7,8 +7,8 @@
  */
 
 define(
-    ['knockout', 'log', 'jquery', 'stringjs'],
-    function (ko, log, $, S) {
+    ['knockout', 'log', 'jquery', 'postal'],
+    function (ko, log, $, postal) {
         "use strict";
 
         function TradeBlotterViewModel() {
@@ -38,6 +38,14 @@ define(
             this.loadTrades();
         }
 
+        TradeBlotterViewModel.prototype.CHANNEL_NAME = 'TradeBlotterChannel';
+
+        function raiseSelectionEvent(msg) {
+            var channel = postal.channel(TradeBlotterViewModel.CHANNEL_NAME);
+            channel.publish("Selection", msg);
+            log.debug("Published selection ev");
+        }
+
         TradeBlotterViewModel.prototype.onChange = function (ev) {
             log.info("Grid selection ev: " + ev);
             var selectedRows = this.select();
@@ -46,7 +54,9 @@ define(
                 var dataItem = this.dataItem(selectedRows[i]);
                 selectedDataItems.push(dataItem);
             }
-            log.info("Selected row: " + JSON.stringify(selectedDataItems));
+            var msg = JSON.stringify(selectedDataItems[0]);
+            log.info("Selected row: " + msg);
+            raiseSelectionEvent(msg);
         };
 
         TradeBlotterViewModel.prototype.loadTrades = function () {
