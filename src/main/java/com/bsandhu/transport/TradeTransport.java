@@ -1,28 +1,22 @@
-package com.bsandhu.controllers;
+package com.bsandhu.transport;
 
 import com.bsandhu.model.Trade;
 import com.bsandhu.services.TradeService;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/trade")
-public class TradeController {
+public class TradeTransport {
 
-    static Logger logger = Logger.getLogger(ClientController.class);
+    static Logger logger = Logger.getLogger(TradeTransport.class);
     private TradeService service;
 
     @Autowired
-    public TradeController(TradeService service) {
+    public TradeTransport(TradeService service) {
         this.service = service;
     }
 

@@ -1,4 +1,4 @@
-package com.bsandhu.controllers;
+package com.bsandhu.transport;
 
 import com.bsandhu.services.RefDataService;
 import org.apache.log4j.Logger;
@@ -10,23 +10,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: baljeetsandhu
- * Date: 5/16/13
- * Time: 10:19 AM
- * To change this template use File | Settings | File Templates.
- */
-
 @Controller
 @RequestMapping("/refdata")
-public class RefDataController {
+public class RefDataTransport {
 
-    private static Logger logger = Logger.getLogger(RefDataController.class);
+    private static Logger logger = Logger.getLogger(RefDataTransport.class);
     private RefDataService service;
 
     @Autowired
-    public RefDataController(RefDataService service) {
+    public RefDataTransport(RefDataService service) {
         this.service = service;
     }
 

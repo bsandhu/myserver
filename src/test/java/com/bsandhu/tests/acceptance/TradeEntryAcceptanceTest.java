@@ -8,13 +8,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created with IntelliJ IDEA.
- * User: baljeetsandhu
- * Date: 5/21/13
- * Time: 9:39 PM
- * To change this template use File | Settings | File Templates.
- */
 public class TradeEntryAcceptanceTest extends TestCase {
 
     private TradeTicketDriver ticketDriver;
