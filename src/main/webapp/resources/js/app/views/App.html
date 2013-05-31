@@ -32,16 +32,18 @@
 
 <script>
     curl(["domReady!", "jquery"])
-            .next(["js!jqueryui"])
-            .next(["knockout"], function(ko) {window['ko'] = ko;})
+            .next(["js!jqueryui", "js!jquery-atmosphere"])
+            .next(["knockout"], function (ko) {
+                window['ko'] = ko;
+            })
             .next(["ko-amd-helpers"])
             .next(["js!ko-jqueryui"])
             .next(["js!kendo.web"])
             .next(["ko-kendoui"])
             .next(["knockout", "app/viewModels/AppViewModel"], function (ko, AppViewModel) {
-                ko.amdTemplateEngine.defaultPath = "app/views"
+                ko.amdTemplateEngine.defaultPath = "app/views";
                 ko.amdTemplateEngine.defaultSuffix = ".html";
-                ko.bindingHandlers.module.baseDir = "app/viewModels"
+                ko.bindingHandlers.module.baseDir = "app/viewModels";
                 ko.applyBindings(new AppViewModel());
             });
 </script>

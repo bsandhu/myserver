@@ -24,6 +24,9 @@ curl = {baseUrl: "../../../js",
                 "postal" : "lib/postal.js",
                 "postaldiags" : "lib/postal.diagnostics.js",
 
+                /** Atmosphere */
+                "jquery-atmosphere": "lib/jquery.atmosphere.js",
+
                 /** Curl plugins */
                 "text": "lib/text",
 

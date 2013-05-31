@@ -1,7 +1,8 @@
 package com.bsandhu.transport;
 
 import com.bsandhu.services.RefDataService;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import java.util.List;
 @RequestMapping("/refdata")
 public class RefDataTransport {
 
-    private static Logger logger = Logger.getLogger(RefDataTransport.class);
+    private static Logger logger = LoggerFactory.getLogger(RefDataTransport.class);
     private RefDataService service;
 
     @Autowired

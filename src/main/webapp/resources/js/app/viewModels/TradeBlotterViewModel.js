@@ -17,7 +17,7 @@ define(
             this.selectColumns = ko.observable(true);
             this.selectionMode = ko.observable('single');
             this.widget = ko.observable();
-            this.pageSetup = ko.observable({pageSize: 10, input: true})
+            this.pageSetup = ko.observable({pageSize: 10, input: true});
 
             this.attributes = {style: 'font-size: 14px'};
             this.columnSetup = ko.observableArray([
@@ -32,8 +32,7 @@ define(
                 { field: 'price', title: 'price', width: 90, attributes: this.attributes},
                 { field: 'trancheId', title: 'trancheId', width: 100, attributes: this.attributes},
                 { field: 'Quantity', title: 'Quantity', width: 100, attributes: this.attributes},
-                { field: 'buySell', title: 'buySell', width: 90, attributes: this.attributes},
-                { command: ["edit", "destroy"], title: "&nbsp;", width: 150}
+                { field: 'buySell', title: 'buySell', width: 90, attributes: this.attributes}
             ]);
             this.loadTrades();
         }

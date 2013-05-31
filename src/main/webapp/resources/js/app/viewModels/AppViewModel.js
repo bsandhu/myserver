@@ -1,10 +1,11 @@
 define(
-    ['knockout', 'log', 'jquery'],
-    function (ko, log, $) {
+    ['knockout', 'log', 'jquery', 'app/services/TradesUpdatesListener'],
+    function (ko, log, $, TradesUpdatesListener) {
         "use strict";
 
         function AppViewModel() {
             log.info('Init App view model');
+            TradesUpdatesListener.start();
         }
 
         return AppViewModel;
