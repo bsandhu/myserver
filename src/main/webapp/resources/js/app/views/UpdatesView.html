@@ -1,0 +1,17 @@
+<div id="updatesView" xmlns="http://www.w3.org/1999/html">
+    <input data-bind="checked: sendUpdates,
+                      event:{change: toggleUpdates}"
+           type="checkbox">Send updates</input>
+
+    <div style="padding-top: 20px; padding-bottom: 40px">
+        <div class="sliderContainer">
+            <input data-bind="kendoSlider: {value:updateRate,
+                                            enabled:sendUpdates,
+                                            max:maxValue,
+                                            min:minValue,
+                                            smallStep:smallStep,
+                                            largeStep:largeStep,}"/>
+            <strong data-bind="text: updateRate"></strong><span> Updates/sec</span>
+        </div>
+    </div>
+</div>

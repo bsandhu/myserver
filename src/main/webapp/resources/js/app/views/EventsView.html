@@ -1,25 +1,19 @@
 <div id="eventsView">
-    <div data-bind="kendoWindow: {
-                    isOpen: historyVisible,
-                    draggable: true,
-                    title: 'Event history (Local storage)',
-                    height: winHeight,
-                    width: winWidth,
-                    widget: widget,
-                    resizable: true,
-                    visible: historyVisible,
-                    actions: ['Close', 'Minimize', 'Maximize'],
-                    modal: false}">
-        <div data-bind="kendoListView: { data: events,
-                                    template: 'listTmpl',
-                                    useKOTemplates: true }">
+    <div data-bind="kendoTabStrip: {}">
+        <ul>
+            <li data-bind="kendoTab: { enabled: eventsEnabled }">Events</li>
+            <li data-bind="kendoTab: { enabled: updatesEnabled }">Updates</li>
+        </ul>
+        <div>
+            <div data-bind="kendoListView: { data: events,
+                                            template: 'listTmpl',
+                                            useKOTemplates: true }"></div>
+            <button data-bind="click: clearHistory">Clear history</button>
         </div>
+        <div data-bind="module: {template:'UpdatesView', name:'UpdatesViewModel'}"></div>
     </div>
+</div>
 
-
-    <div style="padding: 3px; bottom:2px; right:2px; position: absolute;">
-        <button data-bind="click: clearHistory">Clear history</button>
-    </div>
 
 </div>
 

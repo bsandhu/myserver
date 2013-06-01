@@ -1,11 +1,3 @@
-/**
- * Created with IntelliJ IDEA.
- * User: baljeetsandhu
- * Date: 5/16/13
- * Time: 3:29 PM
- * To change this template use File | Settings | File Templates.
- */
-
 define(
     ['knockout', 'log', 'jquery', 'postal', 'app/utils/PostalConfig'],
     function (ko, log, $, postal, config) {
@@ -35,6 +27,7 @@ define(
                 { field: 'buySell', title: 'buySell', width: 90, attributes: this.attributes}
             ]);
             this.loadTrades();
+            this.listenForUpdates();
         }
 
         function raiseSelectionEvent(msg) {
@@ -62,6 +55,17 @@ define(
                 log.info('Loaded trades: ' + status);
                 log.debug(ko.toJS(data));
                 _trades(JSON.parse(data));
+            });
+        };
+
+        TradeBlotterViewModel.prototype.listenForUpdates = function () {
+            var channel = postal.channel(config.TRADE_UPDATES_CHANNEL);
+            var _this = this;
+            channel.subscribe('Update', function (msg) {
+                log.debug("Got Update ev. " + msg);
+//                var tmp = _this.trades();
+//                tmp.push(JSON.parse(msg));
+                _this.widget().dataSource.add(JSON.parse(msg));
             });
         };
 

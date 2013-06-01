@@ -5,6 +5,9 @@ define(
 
         function EventsViewModel() {
             this.events = ko.observableArray(JSON.parse(localStorage.getItem('EventsHistory')) || []);
+            this.eventsEnabled = ko.observable(true);
+            this.updatesEnabled = ko.observable(true);
+
             this.historyVisible = ko.observable(true);
             this.winHeight = ko.observable($('#topRightSplitter').height() - 100);
             this.winWidth = ko.observable($('#topRightSplitter').width());

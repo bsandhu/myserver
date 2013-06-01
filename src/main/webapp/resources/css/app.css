@@ -7,5 +7,14 @@
     text-align: right;
 }
 
-input {
+.sliderContainer .k-slider-horizontal {
+    display: inline-block;
+    float: left;
+    width: 250px;
+    height: 26px;
+    margin-right: 50px;
+}
+
+.k-grid td {
+    padding: .1em .1em
 }
