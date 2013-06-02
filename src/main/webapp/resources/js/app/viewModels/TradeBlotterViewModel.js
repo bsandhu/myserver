@@ -63,8 +63,6 @@ define(
             var _this = this;
             channel.subscribe('Update', function (msg) {
                 log.debug("Got Update ev. " + msg);
-//                var tmp = _this.trades();
-//                tmp.push(JSON.parse(msg));
                 _this.widget().dataSource.add(JSON.parse(msg));
             });
         };
