@@ -1,10 +1,3 @@
-/**
- * Created with IntelliJ IDEA.
- * User: baljeetsandhu
- * Date: 5/14/13
- * Time: 3:44 PM
- * To change this template use File | Settings | File Templates.
- */
 curl = {baseUrl: window.location.origin + '/myserver/resources/js/',
         paths: {/** Core libs */
                 "jquery"    : "lib/jquery-1.9.1.js",
